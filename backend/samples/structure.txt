@@ -1,0 +1,17 @@
+Resume/
+├── app/
+│   ├── __init__.py
+│   ├── main.py             # Instansiasi FastAPI & endpoint router (sebelumnya app.py)
+│   ├── config.py           # Konfigurasi aplikasi (Ollama host, model name, port)
+│   ├── schemas.py          # Definisi Pydantic schema (validasi response JSON)
+│   ├── prompts.py          # Tempat menyimpan template prompt LLM agar tidak menumpuk di kode logika
+│   └── services/           # Folder logika bisnis/helper
+│       ├── __init__.py
+│       ├── extractor.py    # Logika ekstraksi PDF, DOCX, TXT
+│       └── analyzer.py     # Logika pemanggilan Ollama & validasi hasil
+├── samples/                # Folder khusus pengujian (pindahkan cv_andra.pdf ke sini)
+│   └── cv_andra.pdf
+├── .env                    # Variabel environment (opsional)
+├── .gitignore              # Mengabaikan .venv, __pycache__, .env
+├── requirements.txt
+└── README.md

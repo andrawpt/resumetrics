@@ -1,0 +1,69 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack-header-outer {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack-header-inner {
+  position: relative;
+  width: 100%;
+  will-change: transform, opacity;
+  transform-origin: top center;
+  backface-visibility: hidden;
+}
+
+.scroll-stack-inner {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack-card-wrapper {
+  position: relative;
+  width: 100%;
+  will-change: transform;
+}
+
+.scroll-stack-card {
+  position: relative;
+  width: 100%;
+  will-change: transform, opacity;
+  transform-origin: top center;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.scroll-stack-end {
+  width: 100%;
+  pointer-events: none;
+}
+
+@keyframes floatIdle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, calc(-1 * var(--float-y, 7px)), 0) rotate(var(--float-rotate, 0.4deg));
+  }
+}
+
+.scroll-stack-card-float {
+  width: 100%;
+  height: 100%;
+  animation: floatIdle var(--float-dur, 4.5s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+  will-change: transform;
+}
+
+.scroll-stack-header-float {
+  width: 100%;
+  animation: floatIdle 6s ease-in-out infinite;
+  animation-delay: 0s;
+  --float-y: 5px;
+  --float-rotate: -0.3deg;
+  will-change: transform;
+}
+

@@ -1,0 +1,397 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --breakpoint-3xl: 120rem;
+  --breakpoint-4xl: 140rem;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after,
+  html,
+  body,
+  button,
+  input,
+  select,
+  textarea,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  b,
+  strong,
+  code,
+  pre {
+    font-family: 'Work Sans', system-ui, -apple-system, sans-serif !important;
+    font-weight: 400 !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    min-height: 100vh;
+    background-color: #09090b;
+    color: #f4f4f5;
+    font-weight: 400 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+@keyframes fadeInPure {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUpSmooth {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDownSmooth {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -16px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes scaleUpSmooth {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.97, 0.97, 1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.08);
+  }
+}
+
+.animate-page-fade-in {
+  animation: fadeInPure 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity;
+}
+
+.animate-fade-in {
+  animation: fadeInPure 0.4s ease-out both;
+  will-change: opacity;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUpSmooth 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDownSmooth 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.animate-scale-up {
+  animation: scaleUpSmooth 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.delay-75 {
+  animation-delay: 75ms;
+}
+
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+@keyframes drawCircleOutline {
+  0% {
+    stroke-dashoffset: 57;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCheckmarkLine {
+  0% {
+    stroke-dashoffset: 20;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-draw-circle {
+  transform-origin: center;
+  transform: rotate(-90deg);
+  stroke-dasharray: 57;
+  stroke-dashoffset: 57;
+  animation: drawCircleOutline 0.45s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.animate-draw-check {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: drawCheckmarkLine 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.4s forwards;
+}
+
+.animate-checkmark-pop {
+  animation: checkmarkPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s forwards;
+}
+
+@keyframes fadeOutSmooth {
+  0% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale3d(0.96, 0.96, 1);
+  }
+}
+
+.animate-fade-out {
+  animation: fadeOutSmooth 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes drawCheckmarkLine {
+  0% {
+    stroke-dashoffset: 20;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawMainCheck {
+  0% {
+    stroke-dashoffset: 60;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes checkmarkPop {
+  0% {
+    transform: scale(0.95);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-draw-check {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: drawCheckmarkLine 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-draw-main-check {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawMainCheck 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-checkmark-pop {
+  animation: checkmarkPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fileInsertSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0) scale3d(0.97, 0.97, 1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate3d(0, 1px, 0) scale3d(1.005, 1.005, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+.animate-file-insert {
+  animation: fileInsertSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.animate-file-progress {
+  animation: progressLoadBar 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: width, opacity;
+}
+
+@keyframes fileRemoveSlideOut {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+  35% {
+    opacity: 0.9;
+    transform: translate3d(0, 1px, 0) scale3d(1.005, 1.005, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0) scale3d(0.97, 0.97, 1);
+  }
+}
+
+.animate-file-remove {
+  animation: fileRemoveSlideOut 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.animate-layout-spring-push {
+  transition: grid-template-rows 0.5s cubic-bezier(0.34, 1.45, 0.64, 1),
+              opacity 0.4s ease-out,
+              margin-top 0.45s cubic-bezier(0.34, 1.45, 0.64, 1);
+  will-change: grid-template-rows, opacity, margin-top;
+}
+
+.animate-layout-spring-pull {
+  transition: grid-template-rows 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.35s ease-in,
+              margin-top 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: grid-template-rows, opacity, margin-top;
+}
+
+@keyframes floatLayer1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatLayer2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -15px, 0) rotate(0.8deg);
+  }
+}
+
+@keyframes floatLayer3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(-0.6deg);
+  }
+}
+
+.animate-float-card-1 {
+  animation: floatLayer1 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-card-2 {
+  animation: floatLayer2 6s ease-in-out infinite 0.8s;
+  will-change: transform;
+}
+
+.animate-float-card-3 {
+  animation: floatLayer3 5.5s ease-in-out infinite 1.6s;
+  will-change: transform;
+}
